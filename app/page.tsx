@@ -1,14 +1,18 @@
-'use client';
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import ClientComponent from "./ClientComponent";
 
-import { signOut } from "next-auth/react";
 
-export default function Page() {
-    return ( 
-        <>
-            <h1 className="text-2xl text-green-500">
-            Netflix Clone
-            </h1>
-            <button onClick={() => {signOut()}}>Logout!</button> 
-        </>
-    );
+export default async function Page() {
+
+
+    const session = await getServerSession(authOptions);
+    if(!session){
+        redirect('/auth');
+    }
+
+    return await <ClientComponent />
 }
+
+

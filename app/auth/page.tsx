@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import Input from "@/components/input";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
@@ -24,10 +24,21 @@ const Auth = () => {
     }
     ,[variant]);
 
+    // update react state with autofilled values
+    useEffect(() => {
+        const emailInput = document.getElementById("email") as HTMLInputElement;
+        const passwordInput = document.getElementById("password") as HTMLInputElement;
+
+        if (emailInput && passwordInput) {
+            setEmail(emailInput.value);
+            setPassword(passwordInput.value); 
+        }
+    }, []);
+
 
     const login = useCallback(async()=> {
         try{
-            signIn('credentials', {
+            await signIn('credentials', {
                 email,
                 password,
                 callbackUrl: '/',
