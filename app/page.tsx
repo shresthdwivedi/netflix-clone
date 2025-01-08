@@ -1,7 +1,7 @@
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import ClientComponent from "../components/HomeClientComponent";
+import Navbar from "@/components/Navbar";
 
 
 export default async function Page() {
@@ -11,7 +11,11 @@ export default async function Page() {
         redirect('/auth');
     }
 
-    return await <ClientComponent />
+    return (
+        <>
+            <Navbar />
+        </>
+    )
 }
 
 

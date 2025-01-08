@@ -1,7 +1,7 @@
 'use client'
 
 import axios from "axios";
-import Input from "@/components/input";
+import Input from "@/components/Input";
 import { useCallback, useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
