@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
+import MovieList from "@/components/MovieList";
+
 
 
 export default async function Page() {
@@ -16,6 +18,9 @@ export default async function Page() {
         <>
             <Navbar />
             <Billboard />
+            <div className="pb-40">
+                <MovieList title="Trending Now" />
+            </div>
         </>
     )
 }

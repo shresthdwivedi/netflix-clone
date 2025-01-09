@@ -12,6 +12,7 @@ const Billboard: React.FC = () => {
             <video 
                 className="w-full h-[56.25vw] object-cover brightness-[60%]"
                 autoPlay
+                disablePictureInPicture
                 muted
                 loop
                 poster={data?.thumbnailUrl}
