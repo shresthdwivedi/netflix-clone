@@ -31,7 +31,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
             response = await axios.post('/api/favorite', { movieId })
         }
 
-        const updatedFavoriteIds = response?.data?.favoriteIds
+        const updatedFavoriteIds = response?.data?.favoriteIds;
         mutate({
             ...currentUser,
             favoriteIds: updatedFavoriteIds,
