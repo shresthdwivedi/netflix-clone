@@ -4,6 +4,7 @@ import useMovieList from "@/hooks/useMovieList";
 import { isEmpty } from "lodash";
 import React from "react";
 import MovieCard from "./MovieCard";
+import useFavorites from "@/hooks/useFavorites";
 
 interface MovieListProps {
     title: string,
@@ -15,6 +16,7 @@ const MovieList: React.FC<MovieListProps> = ({
 }) => {
     
     const { data: movies = []} = useMovieList();
+    const { data: favorites = []} = useFavorites();
 
     if(isEmpty(movies)){
         return null;
@@ -25,10 +27,16 @@ const MovieList: React.FC<MovieListProps> = ({
             <p className="text-white font-semibold text-base md:text-xl lg:text-2xl mb-4">
                 {title}
             </p>
-            <div className={`grid grid-cols-${movies.length} gap-2`}>
-                {movies.map((movie: Record<string, any>) => (
-                    <MovieCard key={movie.id} data={movie}/>
-                ))}
+            <div className={`grid grid-cols-4 gap-2`}>
+                {title === 'Trending Now' ? 
+                    movies.map((movie: Record<string, any>) => (
+                        <MovieCard key={movie.id} data={movie}/>
+                    ))
+                    : 
+                    favorites.map((favorite: Record<string, any>) => (
+                        <MovieCard key={favorite.id} data={favorite}/>
+                    ))
+                }
             </div>
         </div>
     )

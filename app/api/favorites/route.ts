@@ -5,6 +5,11 @@ import { NextResponse } from "next/server";
 export async function GET() {
     try{
         const currentUser = await serverAuth();
+
+        if (!currentUser || !currentUser.favoriteIds || currentUser.favoriteIds.length === 0) {
+            return NextResponse.json([], { status: 200 });
+        }
+
         const favoriteMovies = await prisma.movie.findMany({
             where: {
                 id: {
@@ -12,7 +17,7 @@ export async function GET() {
                 }
             }
         })
-
+        console.log(favoriteMovies);
         return NextResponse.json(favoriteMovies);
     }
     catch(error){

@@ -7,7 +7,7 @@ export async function POST(req: Request){
     try{
         const currentUser = await serverAuth();
 
-        const { movieId }= await req.json();
+        const { movieId } = await req.json();
         const existingMovie = await prisma.movie.findUnique({
             where: {
                 id: movieId,

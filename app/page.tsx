@@ -20,6 +20,7 @@ export default async function Page() {
             <Billboard />
             <div className="pb-40">
                 <MovieList title="Trending Now" />
+                <MovieList title="My List" />
             </div>
         </>
     )
