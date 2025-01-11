@@ -17,7 +17,6 @@ export async function GET() {
                 }
             }
         })
-        console.log(favoriteMovies);
         return NextResponse.json(favoriteMovies);
     }
     catch(error){

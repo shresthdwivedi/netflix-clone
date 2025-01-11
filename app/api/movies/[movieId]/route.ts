@@ -1,7 +1,7 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
-async function handler(req: Request, { params }: { params: { movieId: string } }) {
+export async function GET(req: Request, { params }: { params: Promise<{ movieId: string }> }) {
     try{
         const { movieId } = await params;
         
@@ -30,5 +30,3 @@ async function handler(req: Request, { params }: { params: { movieId: string } }
         return NextResponse.json({status: 400})
     }
 }
-
-export { handler as GET };

@@ -14,7 +14,7 @@ const WatchComponent: React.FC<WatchComponentProps> = ({
 
     const router = useRouter();
     const { data } = useMovie(movieId);
-
+    
     return (
         <div className="h-screen w-screen bg-black">
             <nav className="flex flex-row fixed w-full p-4 z-10 items-center gap-8 bg-black bg-opacity-70">
