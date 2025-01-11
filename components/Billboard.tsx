@@ -13,7 +13,7 @@ const Billboard: React.FC = () => {
 
     const handleOpenModal = useCallback(() => {
         openModal(data?.id);
-    }, [openModal])
+    }, [openModal, data?.id])
     return (
         <div className="relative w-full h-[56.25vw]">
             <video 

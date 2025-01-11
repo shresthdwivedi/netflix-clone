@@ -10,6 +10,16 @@ interface MovieListProps {
     title: string,
 }
 
+interface MovieProps {
+    id: string,
+    title: string,
+    description: string,
+    videoUrl: string,
+    thumbnailUrl: string,
+    genre: string,
+    duration: string,
+}
+
 
 const MovieList: React.FC<MovieListProps> = ({
     title,
@@ -29,11 +39,11 @@ const MovieList: React.FC<MovieListProps> = ({
             </p>
             <div className={`grid grid-cols-4 gap-2`}>
                 {title === 'Trending Now' ? 
-                    movies.map((movie: Record<string, any>) => (
+                    movies.map((movie: MovieProps) => (
                         <MovieCard key={movie.id} data={movie}/>
                     ))
                     : 
-                    favorites.map((favorite: Record<string, any>) => (
+                    favorites.map((favorite: MovieProps) => (
                         <MovieCard key={favorite.id} data={favorite}/>
                     ))
                 }

@@ -2,6 +2,7 @@
 
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 import React from "react";
 
 interface AccountMenuProps {
@@ -20,7 +21,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({
         <div className="bg-black w-56 absolute border-2 border-gray-800 top-14 right-0 py-5 flex flex-col">
             <div className="flex flex-col gap-3">
                 <div className="px-3 group/item flex flex-row w-full items-center gap-3 ">
-                    <img className="w-8 rounded-md" src="/images/profile-purple.jpg" alt="profile-photo"/>
+                    <Image className="w-8 rounded-md" src="/images/profile-purple.jpg" alt="profile-photo" width={200} height={200} />
                     <p className="text-white text-sm group-hover/item:underline ">
                         {user.name}
                     </p>

@@ -1,7 +1,7 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, { params }: { params: { movieId: string } }) {
+async function handler(req: Request, { params }: { params: { movieId: string } }) {
     try{
         const { movieId } = await params;
         
@@ -31,3 +31,4 @@ export async function GET(req: Request, { params }: { params: { movieId: string 
     }
 }
 
+export { handler as GET };

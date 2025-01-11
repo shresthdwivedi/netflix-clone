@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 
 const Auth = () => {
@@ -65,8 +66,8 @@ const Auth = () => {
         <>
             <div className="relative h-full w-full bg-[url('/images/hero.png')] bg-no-repeat bg-center bg-cover bg-fixed">
                 <div className="bg-black h-full w-full lg:bg-opacity-50">
-                    <nav className="px-12 py-5">
-                        <img src='/images/logo.jpg' alt="netflix-logo" className="h-16"/>
+                    <nav className="px-12 py-5 ">
+                        <Image src='/images/logo.jpg' alt="netflix-logo" className="h-16 w-32" width={1801} height={756}/>
                     </nav>
                     <div className="flex justify-center ">
                         <div className="bg-black bg-opacity-70 p-16 self-center mt-10 lg:w-2/4 lg:max-w-md rounded-md w-full">
@@ -78,7 +79,7 @@ const Auth = () => {
                                     <Input 
                                         id="name"
                                         label="Username"
-                                        onChange={(e:any) => {setName(e.target.value)}}
+                                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => {setName(e.target.value)}}
                                         type="name"
                                         value={name}
                                     />
@@ -86,14 +87,14 @@ const Auth = () => {
                                 <Input 
                                     id="email"
                                     label="Email"
-                                    onChange={(e:any) => {setEmail(e.target.value)}}
+                                    onChange={(e:React.ChangeEvent<HTMLInputElement>) => {setEmail(e.target.value)}}
                                     type="email"
                                     value={email}
                                 />   
                                 <Input 
                                     id="password"
                                     label="Password"
-                                    onChange={(e:any) => {setPassword(e.target.value)}}
+                                    onChange={(e:React.ChangeEvent<HTMLInputElement>) => {setPassword(e.target.value)}}
                                     type="password"
                                     value={password}
                                 />                          

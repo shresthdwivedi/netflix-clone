@@ -10,6 +10,13 @@ interface FavoriteButtonProps {
     movieId: string,
 }
 
+interface FavoriteResponse {
+    data: {
+        favoriteIds: string[],
+        movieId: string,
+    }
+}
+
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     movieId,
 }) => {
@@ -23,7 +30,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     },[movieId, currentUser]);
 
     const toggleFavorites = useCallback(async () => {
-        let response: Record<string, any>;
+        let response: FavoriteResponse;
 
         if(isFavorite) {
             response = await axios.delete('/api/favorite', { data: { movieId } } )

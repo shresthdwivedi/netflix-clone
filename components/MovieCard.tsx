@@ -1,14 +1,25 @@
 'use client';
 
-import React, { useCallback } from "react";
+import React from "react";
 import { BsFillPlayFill } from "react-icons/bs";
 import FavoriteButton from "./FavoriteButton";
 import { useRouter } from "next/navigation";
 import useInfoModal from "@/hooks/useInfoModal";
 import { BiChevronDown } from "react-icons/bi";
+import Image from "next/image";
+
+interface MovieProps {
+    id: string,
+    title: string,
+    description: string,
+    videoUrl: string,
+    thumbnailUrl: string,
+    genre: string,
+    duration: string,
+}
 
 interface MovieCardProps {
-    data: Record<string, any>,
+    data: MovieProps,
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({
@@ -20,14 +31,16 @@ const MovieCard: React.FC<MovieCardProps> = ({
 
     return(
         <div className="group bg-zinc-900 relative col-span-1 h-[12vw] w-">
-            <img 
+            <Image 
                 className="object-cover rounded-md shadow-xl transition cursor-pointer group-hover:opacity-90 sm:group-hover:opacity-0 h-[12vw] w-full"
-                src={data.thumbnailUrl} alt="thumbnail" 
+                src={data.thumbnailUrl} alt="thumbnail"
+                width={1280} height={720} 
             />
             <div className="absolute opacity-0 top-0 transition duration-200 z-10 delay-50 w-full scale-0 group-hover:scale-110 group-hover:-translate-y-[6vw] group-hover:translate-x-[2vw] group-hover:opacity-100 h-[12vw]">
-                <img
+                <Image
                     className="object-cover cursor-pointer shadow-xl rounded-t-md transition w-full h-[12vw]" 
-                    src={data.thumbnailUrl} alt="thumbnail" 
+                    src={data.thumbnailUrl} alt="thumbnail"
+                    width={1280} height={720}
                 />
                 <div className="bg-zinc-800 p-2 lg:p-4 absolute w-full shadow-md rounded-b-md transition">
                     <div className="flex flex-row gap-3 items-center">
