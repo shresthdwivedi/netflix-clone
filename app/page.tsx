@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
 import MovieList from "@/components/MovieList";
+import InfoModalWrapper from "@/components/InfoModalWrapper";
 
 
 
@@ -16,6 +17,7 @@ export default async function Page() {
 
     return (
         <>
+            <InfoModalWrapper/>
             <Navbar />
             <Billboard />
             <div className="pb-40">
