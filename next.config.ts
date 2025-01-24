@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  exports: {
+    output: 'standalone',
+  },
   images: {
     remotePatterns: [
       {
